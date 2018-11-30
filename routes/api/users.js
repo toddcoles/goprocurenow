@@ -17,8 +17,9 @@ router.get('/test', (req, res) => res.json({ msg: 'Users works' }));
 router.post('/register', (req, res) => {
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: 'Email already exists' });
+      return res.status(400).json({ email: 'Email already exists' }); // ERROR IF NAME EXISTS IN DB
     } else {
+      // RUNS IF NO NAME IN DB -> REGISTERS NAME
       const avatar = gravatar.url(req.body.email, {
         s: '200', //SIZE
         r: 'pg', // RATING
@@ -29,7 +30,7 @@ router.post('/register', (req, res) => {
         email: req.body.email,
         avatar,
         password: req.body.password
-      });
+      }); // THIS WILL TAKE THE DATA FROM A FORM - OR USING POSTMAN
 
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
