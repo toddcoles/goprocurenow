@@ -19,19 +19,19 @@ const db = require('./config/keys').mongoURI;
 mongoose
   .connect(
     db,
-    { useNewUrlParser: true }
+    { useNewUrlParser: true } // FIXES PROBLEM WITH OLDER SYSTEM
   )
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('MongoDB Connected')) // PROMISE
   .catch(err => console.log(err));
 
-app.get('/', (req, res) => res.send('Hello'));
+app.get('/', (req, res) => res.send('Hello')); // ROUTE FOR ALL REQUESTS TO '/'
 
 // USE ROUTES
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 

@@ -1,7 +1,7 @@
 {
   "name": "vectrus",
   "version": "1.0.0",
-  "description": "Vectrus Supply Chain system",
+  "description": "Supply Chain system",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
