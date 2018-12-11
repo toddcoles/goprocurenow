@@ -35,7 +35,7 @@ router.get(
 );
 
 // @route   POST api/profile
-// @desc    Create or edit user profile
+// @desc    Create or edit cuser profile
 // @access  Private
 router.post(
   '/',
@@ -66,6 +66,30 @@ router.post(
     if (req.body.linkedin) profileFieldsl.social.linkedin = req.body.linkedin;
     if (req.body.instagram)
       profileFieldsl.social.instagram = req.body.instagram;
+
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      if (profile) {
+        // Update
+        Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        ).then(profile => res.json(profile));
+      } else {
+        // Create
+
+        // Check if handle exists
+        Profile.findOne({ handle: profileFields.handle }).then(profile => {
+          if (profile) {
+            errors.handle = 'That handle already exists';
+            res.status(400).json(errors);
+          }
+
+          // Save profile
+          new Profile(profileFields).save().then(profile => res.json(profile));
+        });
+      }
+    });
   }
 );
 
