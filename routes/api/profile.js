@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
+// Load Validation
+const validateProfileInput = require('../../validation/profile');
+
 // Load Profile model
 const Profile = require('../../models/Profile');
 // Load User model
@@ -23,6 +26,7 @@ router.get(
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
+      .populate('user', ['name', 'avatar'])
       .then(profile => {
         if (!profile) {
           errors.noprofile = 'There is no profile for this user';
@@ -41,6 +45,14 @@ router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateProfileInput(req.body);
+
+    // Check validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
     // Get fields
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -60,12 +72,11 @@ router.post(
     // Social links
     profileFields.social = {};
 
-    if (req.body.youtube) profileFieldsl.social.youtube = req.body.youtube;
-    if (req.body.twitter) profileFieldsl.social.twitter = req.body.twitter;
-    if (req.body.facebook) profileFieldsl.social.facebook = req.body.facebook;
-    if (req.body.linkedin) profileFieldsl.social.linkedin = req.body.linkedin;
-    if (req.body.instagram)
-      profileFieldsl.social.instagram = req.body.instagram;
+    if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
+    if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
+    if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
+    if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
+    if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
