@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; // To connect state to component from Redux
 import { withRouter } from 'react-router-dom'; // Redirect in an action
 import classnames from 'classnames';
 import { connect } from 'react-redux';
