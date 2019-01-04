@@ -16,28 +16,24 @@ import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
+import CreateProfile from './components/create-profile/CreateProfile';
 
 import './App.css';
 
 // This code keeps the user logged in even on a refresh ***********
+
 // Check for token
 if (localStorage.jwtToken) {
-  // Set auth token header
-  setAuthToken(localStorage.jwtToken);
-  // Decode token and get user info and expiration
-  const decoded = jwt_decode(localStorage.jwtToken);
-  // Set user and isAuthenticated
-  store.dispatch(setCurrentUser(decoded));
+  setAuthToken(localStorage.jwtToken); // Set auth token header
+  const decoded = jwt_decode(localStorage.jwtToken); // Decode token and get user info and expiration
+  store.dispatch(setCurrentUser(decoded)); // Set user and isAuthenticated
 
-  // Check for expired token *********** EXPIRED TOKENS
+  // Check for expired token *********** EXPIRED TOKENS - Set to 1 hour
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {
-    // Logout user
-    store.dispatch(logoutUser());
-    // Clear current profile
-    store.dispatch(clearCurrentProfile());
-    // Redirect to login
-    window.location.href = '/login';
+    store.dispatch(logoutUser()); // Logout user
+    store.dispatch(clearCurrentProfile()); // Clear current profile
+    window.location.href = '/login'; // Redirect to login
   }
 }
 
@@ -56,6 +52,13 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
               </Switch>
             </div>
             <Footer />
