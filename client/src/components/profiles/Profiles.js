@@ -31,10 +31,10 @@ class Profiles extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4 text-center">Developer Properties</h1>
-              <p className="lead text-center">
-                Browse and connect with developers
-              </p>
+              <h5 className="display-6 text-center">
+                Vectrus Registered Users
+              </h5>
+              <p className="lead text-center">Browse and connect with users</p>
               {profileItems}
             </div>
           </div>
