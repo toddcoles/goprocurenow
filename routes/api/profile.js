@@ -110,7 +110,7 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    // Get fields
+    // Get fields TODO: THESE FIELDS MUST BE UPDATED TO VECTRUS REQUIREMENTS
     const profileFields = {};
     profileFields.user = req.user.id;
     if (req.body.handle) profileFields.handle = req.body.handle;

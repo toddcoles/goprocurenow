@@ -60,10 +60,10 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
+              <h6 className="display-12">Dashboard</h6>
               {dashboardContent}
             </div>
           </div>

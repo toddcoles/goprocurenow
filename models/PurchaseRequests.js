@@ -15,16 +15,16 @@ const PurchaseRequestSchema = new Schema({
   },
   title: {
     type: String,
-    required: true,
+    // required: true,
     max: 140
   },
   status: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   commodity: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   chargeCode: {
     type: String,
@@ -35,28 +35,28 @@ const PurchaseRequestSchema = new Schema({
     max_length: 10
   },
   productService: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   purchaseOrderNum: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   dateRequired: {
-    type: Date,
-    required: true
+    type: Date
+    // required: true
   },
   requestor: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   buyer: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   procurementType: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   vendor: {
     vendorName: {
@@ -113,23 +113,23 @@ const PurchaseRequestSchema = new Schema({
     max_length: 20
   },
   purchaseOrderNum: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   items: [
     {
       qty: {
-        type: Number,
-        required: true
+        type: Number
+        // required: true
       },
       unit: {
         type: String,
-        required: true,
+        // required: true,
         max_length: 10
       },
       price: {
         type: Number,
-        required: true,
+        // required: true,
         min: 0
       },
       currency: {
@@ -219,8 +219,7 @@ const PurchaseRequestSchema = new Schema({
     type: String
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: Date
   }
 });
 

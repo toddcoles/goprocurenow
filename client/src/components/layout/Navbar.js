@@ -19,8 +19,15 @@ class Navbar extends Component {
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
+            <Link className="nav-link" to="/feed">
+              <button type="button" className="btn btn-secondary rounded">
+                Post Feed
+              </button>
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to="/dashboard">
-              <button type="button" className="btn btn-success btn-xs">
+              <button type="button" className="btn btn-secondary rounded">
                 {'NEW PR '}
                 <i className="fa fa-plus" />
               </button>
@@ -41,7 +48,6 @@ class Navbar extends Component {
                 style={{ width: '25px', marginRight: '5px' }}
                 title="You must have a Gravatar connected to your email to display and image"
               /> */}
-              <span class="fas fa-user 5x" style={{ fontSize: '1.5em' }} />
             </a>
           </li>
 
@@ -53,22 +59,73 @@ class Navbar extends Component {
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                style={{ backgroundColor: '#BEB800' }}
               >
-                {user.name}
+                <span class="fas fa-user" style={{ fontSize: '1.25em' }} />
+                {' ' + user.name}
               </button>
               <div class="dropdown-menu">
                 <Link class="dropdown-item" to="/dashboard">
+                  <span
+                    class="fas fa-address-card"
+                    style={{ fontSize: '1em', marginRight: '5px' }}
+                  />
                   Profile
                 </Link>
-                <a class="dropdown-item" href="#">
+
+                {/* TODO: THIS SHOULD ONLY SHOW FOR ADMINISTRATORS */}
+                <Link class="dropdown-item" to="#">
+                  <span
+                    className="fas fa-tools"
+                    style={{
+                      fontSize: '1em',
+                      marginRight: '5px'
+                    }}
+                  />
+                  Admin
+                </Link>
+
+                <Link class="dropdown-item" to="#">
+                  <span
+                    className="fas fa-arrow-alt-circle-right"
+                    style={{
+                      fontSize: '1em',
+                      marginRight: '5px'
+                    }}
+                  />
                   Actions
+                </Link>
+
+                <a class="dropdown-item" href="#">
+                  <button type="button" className="btn-success new">
+                    4
+                  </button>
+                  <span style={{ marginLeft: '8px' }}>Approvals</span>
                 </a>
-                <div class="dropdown-divider" />
+                <a className="dropdown-item" href="#">
+                  <button type="button" className="btn-warning new">
+                    3
+                  </button>
+                  <span style={{ marginLeft: '8px' }}> Responses</span>
+                </a>
+
+                <a className="dropdown-item" href="#">
+                  <button type="button" className="btn-danger new">
+                    2
+                  </button>
+                  <span style={{ marginLeft: '8px' }}> Pending</span>
+                </a>
+
+                <div className="dropdown-divider" />
                 <a
                   class="dropdown-item"
-                  href="#!"
+                  href="#"
                   onClick={this.onLogoutClick.bind(this)}
                 >
+                  <span
+                    className="fas fa-sign-out-alt"
+                    style={{ fontSize: '1em', marginRight: '5px' }}
+                  />
                   Logout
                 </a>
               </div>
@@ -110,10 +167,17 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar bg-dark navbar-expand-sm navbar-dark mb-4">
-        <div className="container">
+      <nav
+        className="navbar navbar-expand-sm navbar-dark mb-4"
+        style={{ backgroundColor: '#52575B' }}
+      >
+        <div className="container-fluid">
           <Link className="navbar-brand" to="/profiles">
-            Vectrus Supply Chain
+            <img
+              src="../../vectrus.png"
+              style={{ width: '120px', height: '45px' }}
+            />
+            <span style={{ display: 'inline' }}>Supply Chain</span>
           </Link>
           <button
             className="navbar-toggler"
@@ -133,7 +197,8 @@ class Navbar extends Component {
               </li>
             </ul>
           </div> */}
-          {isAuthenticated ? authLinks : guestLinks}
+          {isAuthenticated ? authLinks : null}{' '}
+          {/* The guestLinks was changed to null to remove the "Sign up" & "Register" on landing page*/}
         </div>
       </nav>
     );

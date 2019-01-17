@@ -42,6 +42,7 @@ router.get('/:id', (req, res) => {
 // @route   POST api/posts
 // @desc    Create posts
 // @access  Private
+// I HAD ROUTER.POSTS AND THE SERVER STOPPED WORKING... NOT SURE WHY??
 router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
@@ -101,7 +102,7 @@ router.post(
         .then(post => {
           if (
             post.likes.filter(like => like.user.toString() === req.user.id)
-              .lenth > 0
+              .length > 0
           ) {
             return res
               .status(400)

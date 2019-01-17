@@ -21,6 +21,26 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  admin: {
+    supplychainAdmin: {
+      type: Boolean
+    },
+    financeAdmin: {
+      type: Boolean
+    },
+    itAdmin: {
+      type: Boolean
+    },
+    eshAdmin: {
+      type: Boolean
+    },
+    itarAdmin: {
+      type: Boolean
+    },
+    commodityAdmin: {
+      type: Boolean
+    }
   }
 });
 

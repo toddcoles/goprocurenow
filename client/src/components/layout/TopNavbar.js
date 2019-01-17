@@ -16,16 +16,16 @@ class TopNavbar extends Component {
                 className="gradient-buttons btn-info btn-sm"
                 style={{ fontSize: '12px' }}
               >
-                REQUEST INFO{' '}
+                <i class="fa fa-comments" aria-hidden="true" />
+                <span style={{ margin: '0px 5px' }}>Chat Now</span>
                 <span
                   className="rounded border-info text-info"
                   style={{
                     backgroundColor: 'white',
-                    padding: '3px 5px'
+                    padding: '4px 5px'
                   }}
                 >
-                  {' '}
-                  <strong>online</strong>
+                  online
                 </span>
               </button>
             </a>
