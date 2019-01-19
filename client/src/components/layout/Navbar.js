@@ -74,7 +74,7 @@ class Navbar extends Component {
                 </Link>
 
                 {/* TODO: THIS SHOULD ONLY SHOW FOR ADMINISTRATORS */}
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item" to="/Admin">
                   <span
                     className="fas fa-tools"
                     style={{

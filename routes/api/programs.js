@@ -76,7 +76,7 @@ router.get(
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Programs.find()
-      // .sort({ date: -1 })
+      .sort({ programName: -1 })
       .then(programs => res.json(programs))
       .catch(err =>
         res.status(404).json({ noprogramsfound: 'No programs found' })
