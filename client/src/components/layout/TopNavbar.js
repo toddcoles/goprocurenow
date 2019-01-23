@@ -8,7 +8,7 @@ class TopNavbar extends Component {
         className="navbar navbar-light bg-light border"
         style={{ height: '35px' }}
       >
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" to="/dashboard">
               <button
@@ -31,6 +31,20 @@ class TopNavbar extends Component {
             </a>
           </li>
         </ul>
+
+        <span>
+          <button
+            type="button"
+            className="badge badge-light"
+            style={{ fontSize: '14px' }}
+          >
+            <i class="fa fa-users" aria-hidden="true" />
+            <span style={{ margin: '0px 5px' }}>
+              <strong>'X'</strong>
+              Users online
+            </span>
+          </button>
+        </span>
       </nav>
     );
   }

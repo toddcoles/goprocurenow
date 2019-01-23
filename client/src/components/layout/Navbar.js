@@ -26,10 +26,9 @@ class Navbar extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">
+            <Link className="nav-link" to="/create-pr">
               <button type="button" className="btn btn-secondary rounded">
-                {'NEW PR '}
-                <i className="fa fa-plus" />
+                NEW PR <i className="fa fa-plus" />
               </button>
             </Link>
           </li>
@@ -51,6 +50,12 @@ class Navbar extends Component {
             </a>
           </li>
 
+          <div className="mr-5" style={{ fontSize: '10px', color: 'white' }}>
+            AVERAGE PROCESSING TIME: X days X:XX hours
+            <br /> FASTED PROCESSING TIME: X days X:XX hours
+            <br /> LONGEST PROCESSING TIME: X days X:XX hours
+          </div>
+
           <li className="nav-item">
             <div class="btn-group">
               <button
@@ -65,7 +70,7 @@ class Navbar extends Component {
                 {' ' + user.name}
               </button>
               <div class="dropdown-menu">
-                <Link class="dropdown-item" to="/dashboard">
+                <Link class="dropdown-item" to="/profiles">
                   <span
                     class="fas fa-address-card"
                     style={{ fontSize: '1em', marginRight: '5px' }}
@@ -97,23 +102,17 @@ class Navbar extends Component {
                 </Link>
 
                 <a class="dropdown-item" href="#">
-                  <button type="button" className="btn-success new">
-                    4
-                  </button>
-                  <span style={{ marginLeft: '8px' }}>Approvals</span>
+                  <span className="badge badge-success">4 Approvals</span>
+                  {/* <span style={{ marginLeft: '8px' }}>Approvals</span> */}
                 </a>
                 <a className="dropdown-item" href="#">
-                  <button type="button" className="btn-warning new">
-                    3
-                  </button>
-                  <span style={{ marginLeft: '8px' }}> Responses</span>
+                  <span className="badge badge-warning">3 Responses</span>
+                  {/* <span style={{ marginLeft: '8px' }}> Responses</span> */}
                 </a>
 
                 <a className="dropdown-item" href="#">
-                  <button type="button" className="btn-danger new">
-                    2
-                  </button>
-                  <span style={{ marginLeft: '8px' }}> Pending</span>
+                  <span className="badge badge-danger">4 Pending</span>
+                  {/* <span style={{ marginLeft: '8px' }}> Pending</span> */}
                 </a>
 
                 <div className="dropdown-divider" />
@@ -172,7 +171,7 @@ class Navbar extends Component {
         style={{ backgroundColor: '#52575B' }}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/profiles">
+          <Link className="navbar-brand" to="/dashboard">
             <img
               src="../../vectrus.png"
               style={{ width: '120px', height: '45px' }}

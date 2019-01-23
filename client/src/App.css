@@ -204,3 +204,17 @@ th {
 tr:hover {
   background-color: #beb800;
 }
+
+.status-box {
+  text-align: center;
+  padding: 3px;
+  width: 100%;
+  font-size: 12px;
+
+  /* margin: 3px 1px 3px 1px; */
+  /* background-color: rgb(103, 192, 103, 0.75); */
+}
+
+.row {
+  overflow-y: scroll;
+}

@@ -29,6 +29,7 @@ import Admin from './components/admin/Admin';
 import Post from './components/post/Post';
 
 import './App.css';
+import CreatePurchaseRequest from './components/create-purchase-request/CreatePurchaseRequest';
 
 // This code keeps the user logged in even on a refresh ***********
 
@@ -102,6 +103,13 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-pr"
+                  component={CreatePurchaseRequest}
+                />
               </Switch>
               <Route exact path="/not-found" component={NotFound} />
             </div>
