@@ -31,10 +31,7 @@ class Profiles extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <h5 className="display-6 text-center">
-                Vectrus Registered Users
-              </h5>
-              <p className="lead text-center">Browse and connect with users</p>
+              <h6 className="text-center">Vectrus Registered Users</h6>
               {profileItems}
             </div>
           </div>

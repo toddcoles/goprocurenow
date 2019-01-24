@@ -1,50 +1,35 @@
 import React, { Component } from 'react';
 import Posts from '../posts/Posts';
+import Profiles from '../profiles/Profiles';
 
 class Admin extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
-          {/* <div className="col-xs-6 col-lg-4 border">test 2</div> */}
-          <div className="col-xs-6 col-sm-6 col-lg-8 border">
-            <h6>Admin personnel listing</h6>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>@fat</td>
-                </tr>
-              </tbody>
-            </table>
+        <h4 className="display-6 text-center">Administrative page</h4>
+        <div className="row" style={{ display: 'block' }}>
+          <div
+            className="col-md-4 m-auto mt-5"
+            style={{ border: 'solid black 1px', float: 'left' }}
+          >
+            <h4 className="display-6 text-center">PROGRAMS</h4>
+            <div>THIS IS WHERE THE COMPONENT FOR PROGRAMS WILL GO!</div>
           </div>
-          <div className="col-xs-6 col-sm-6 col-lg-4 border">test 2</div>
-          {/* <div className="col-xs-6 col-sm-6 col-lg-4 border">test 2</div> */}
-        </div>
-        <div className="col-xs-6 col-sm-6 col-lg-8 border">
-          <Posts />
+          <div
+            className="col-md-4 m-auto"
+            style={{ border: 'solid black 1px', float: 'left' }}
+          >
+            <h4 className="display-6 text-center">COMMODITY CODES</h4>
+            <div>THIS IS WHERE THE COMPONENT FOR COMMODITY CODES WILL GO!</div>
+          </div>
+          <div
+            className="col-md-4 m-auto"
+            style={{ border: 'solid black 1px', float: 'left' }}
+          >
+            <h4 className="display-6 text-center">USERS</h4>
+            <Profiles />
+            <div />
+          </div>
         </div>
       </div>
     );

@@ -25,6 +25,12 @@ img {
   height: 100%;
 }
 
+.create-profile {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
 .card-form {
   opacity: 0.9;
 }
@@ -68,15 +74,18 @@ img {
 }
 
 .btn-primary {
-  font-family: Raleway-SemiBold;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  color: rgba(58, 133, 191, 0.75);
+  font-weight: bold;
+  /* color: rgba(58, 133, 191, 0.75); */
+  color: #fff;
   letter-spacing: 1px;
   line-height: 12px;
   border: 2px solid rgba(58, 133, 191, 0.75);
   border-radius: 40px;
-  background: transparent;
+  /* background: transparent; */
   transition: all 0.3s ease 0s;
+  margin-right: 15px;
 }
 
 .btn-primary:hover {
@@ -106,7 +115,7 @@ img {
 }
 
 .btn-info new {
-  font-family: Raleway-SemiBold;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: bold;
   color: rgba(91, 192, 222, 0.75);
@@ -114,7 +123,7 @@ img {
   line-height: 12px;
   border: 2px solid rgba(91, 192, 222, 0.75);
   border-radius: 40px;
-  background: transparent;
+  /* background: transparent; */
   transition: all 0.3s ease 0s;
 }
 
@@ -191,14 +200,23 @@ table {
 }
 
 table,
-th,
 td,
 tr {
   border: 1px solid #52575b;
   text-align: left;
+  font-size: 12px;
 }
 th {
-  background-color: #beb800;
+  background-color: #a8a8a6;
+  font-size: 12px;
+}
+.clear {
+  background-color: white;
+  border-bottom-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 tr:hover {

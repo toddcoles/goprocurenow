@@ -6,6 +6,8 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import InputGroup from '../common/InputGroup';
 import SelectListGroup from '../common/SelectListGroup';
+import PRitems from '../create-purchase-request/PRitems';
+import { Link } from 'react-router-dom';
 // import { createPurchase } from '../../actions/purchaseActions';
 
 class CreatePurchaseRequest extends Component {
@@ -72,59 +74,7 @@ class CreatePurchaseRequest extends Component {
   }
 
   render() {
-    const {
-      errors,
-      displaySocialInputs,
-      displayFuncApprovals,
-      displayFinApprovals
-    } = this.state;
-    let socialInputs;
-    if (displaySocialInputs) {
-      socialInputs = (
-        <div>
-          <InputGroup
-            placeholder="Twitter Profile URL"
-            name="twitter"
-            icon="fab fa-twitter"
-            value={this.state.twitter}
-            onChange={this.onChange}
-            error={errors.twitter}
-          />
-          <InputGroup
-            placeholder="Facebook Page URL"
-            name="facebook"
-            icon="fab fa-facebook"
-            value={this.state.facebook}
-            onChange={this.onChange}
-            error={errors.facebook}
-          />
-          <InputGroup
-            placeholder="Linkedin Profile URL"
-            name="linkedin"
-            icon="fab fa-linkedin"
-            value={this.state.linkedin}
-            onChange={this.onChange}
-            error={errors.linkedin}
-          />
-          <InputGroup
-            placeholder="YouTube Channel URL"
-            name="youtube"
-            icon="fab fa-youtube"
-            value={this.state.youtube}
-            onChange={this.onChange}
-            error={errors.youtube}
-          />
-          <InputGroup
-            placeholder="Instagram Page URL"
-            name="instagram"
-            icon="fab fa-instagram"
-            value={this.state.instagram}
-            onChange={this.onChange}
-            error={errors.instagram}
-          />
-        </div>
-      );
-    }
+    const { errors, displayFuncApprovals, displayFinApprovals } = this.state;
 
     let funcApprovals;
     if (displayFuncApprovals) {
@@ -221,20 +171,47 @@ class CreatePurchaseRequest extends Component {
     return (
       <div className="create-profile">
         <div className="container-fluid">
-          <h4 className="display-6 text-center">
-            Create your Purchase Request
-          </h4>
-          <p className="text-center">
-            Remember to fill in all required fields before submitting
-            <small className="d-block pb-3">* = required fields</small>
-          </p>
+          <div className="row" style={{ display: 'block' }}>
+            <div className="col-lg-12">
+              <h6>
+                <strong>STATUS: </strong>
+                <span className="badge badge-warning">NOT SUBMITTED</span>
+                <h5 className="display-8 text-center">
+                  Create your Purchase Request
+                </h5>
+              </h6>
+            </div>
+            <div
+              style={{
+                zIndex: '-1',
+                position: 'absolute',
+                right: '3em'
+              }}
+            >
+              <div
+                className="d-md-block d-sm-none d-xs-none d-lg-block"
+                style={{
+                  fontSize: '12px',
+                  zIndex: '999',
+                  position: 'relative',
+                  top: '-60px',
+                  right: '5em'
+                }}
+              >
+                <div>SUBTOTAL: $450.99</div>
+                <div>TAX: $22.99</div>
+                <div>FREIGHT: $19.99</div>
+                <div>
+                  <strong>TOTAL: $585.99</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <form onSubmit={this.onSubmit}>
             <div className="row" style={{ display: 'block' }}>
-              <div
-                className="col-md-4 m-auto mt-5"
-                style={{ border: 'solid black 1px', float: 'left' }}
-              >
-                <h4 className="display-6 text-center">PR HEADER</h4>
+              <div className="col-md-4 m-auto mt-5" style={{ float: 'left' }}>
+                {/* <h6 className="display-6 text-center">PR HEADER</h6> */}
                 Service Center:
                 <SelectListGroup
                   placeholder="Service Center"
@@ -282,21 +259,17 @@ class CreatePurchaseRequest extends Component {
                     type="button"
                     onClick={() => {
                       this.setState(prevState => ({
-                        displaySocialInputs: !prevState.displaySocialInputs
+                        displayFuncApprovals: !prevState.displayFuncApprovals
                       }));
                     }}
-                    className="btn btn-light"
+                    className="btn btn-secondary"
                   >
-                    Add Social Network Links
+                    DELIVERY LOCATION:
                   </button>
                 </div>
-                {socialInputs}
               </div>
-              <div
-                className="col-md-4 m-auto"
-                style={{ border: 'solid black 1px', float: 'left' }}
-              >
-                <h4 className="display-6 text-center">PR DATA</h4>
+              <div className="col-md-4 m-auto" style={{ float: 'left' }}>
+                {/* <h6 className="display-6 text-center">PR DATA</h6> */}
                 Purchase Order Number:
                 <TextFieldGroup
                   placeholder="Purchase Order / Subk Number"
@@ -337,12 +310,22 @@ class CreatePurchaseRequest extends Component {
                   onChange={this.onChange}
                   error={errors.terms}
                 />
+                <div className="mb-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      this.setState(prevState => ({
+                        displayFuncApprovals: !prevState.displayFuncApprovals
+                      }));
+                    }}
+                    className="btn btn-secondary"
+                  >
+                    VENDOR:
+                  </button>
+                </div>
               </div>
-              <div
-                className="col-md-4 m-auto"
-                style={{ border: 'dashed black 1px', float: 'left' }}
-              >
-                <h4 className="display-6 text-center">PR APPROVALS</h4>
+              <div className="col-md-4 m-auto" style={{ float: 'left' }}>
+                {/* <h6 className="display-6 text-center">PR APPROVALS</h6> */}
                 <div className="mb-3">
                   <button
                     type="button"
@@ -422,25 +405,31 @@ class CreatePurchaseRequest extends Component {
                   error={errors.pmApproval}
                 /> */}
               </div>
-              <div
-                className="col-md-12 m-auto"
-                style={{ border: 'dashed black 1px', float: 'left' }}
-              >
-                <h6 className="display-6 text-center">PR ITEMS</h6>
-                <TextAreaFieldGroup
-                  placeholder="Short bio"
-                  name="bio"
-                  value={this.state.bio}
-                  onChange={this.onChange}
-                  error={errors.bio}
-                />
-              </div>
+              <PRitems />
+              <Link className="nav-link" to="/create-pr">
+                <button type="button" className="btn btn-info rounded btn-sm">
+                  NEW LINE ITEM <i className="fa fa-plus" />
+                </button>
+              </Link>
+              <input
+                type="submit"
+                value="Submit"
+                className="btn btn-success btn-lg mt-4 float-right"
+              />
+              <input
+                type="button"
+                value="Save"
+                className="btn btn-primary btn-lg mt-4 float-right"
+              />
+
+              <TextAreaFieldGroup
+                placeholder="Short bio"
+                name="bio"
+                value={this.state.bio}
+                onChange={this.onChange}
+                error={errors.bio}
+              />
             </div>
-            <input
-              type="submit"
-              value="Submit"
-              className="btn btn-success btn-lg mt-4 float-right"
-            />
           </form>
         </div>
       </div>

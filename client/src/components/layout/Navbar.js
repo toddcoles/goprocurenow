@@ -18,13 +18,13 @@ class Navbar extends Component {
     const authLinks = (
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/feed">
               <button type="button" className="btn btn-secondary rounded">
                 Post Feed
               </button>
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link className="nav-link" to="/create-pr">
               <button type="button" className="btn btn-secondary rounded">
@@ -102,16 +102,19 @@ class Navbar extends Component {
                 </Link>
 
                 <a class="dropdown-item" href="#">
-                  <span className="badge badge-success">4 Approvals</span>
+                  <span className="badge badge-success badge-pill">4</span>{' '}
+                  Approvals
                   {/* <span style={{ marginLeft: '8px' }}>Approvals</span> */}
                 </a>
                 <a className="dropdown-item" href="#">
-                  <span className="badge badge-warning">3 Responses</span>
+                  <span className="badge badge-warning badge-pill">3</span>{' '}
+                  Responses
                   {/* <span style={{ marginLeft: '8px' }}> Responses</span> */}
                 </a>
 
                 <a className="dropdown-item" href="#">
-                  <span className="badge badge-danger">4 Pending</span>
+                  <span className="badge badge-danger badge-pill">4</span>{' '}
+                  Pending
                   {/* <span style={{ marginLeft: '8px' }}> Pending</span> */}
                 </a>
 

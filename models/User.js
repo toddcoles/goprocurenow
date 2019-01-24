@@ -22,6 +22,9 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  status: {
+    type: String
+  },
   admin: {
     supplychainAdmin: {
       type: Boolean

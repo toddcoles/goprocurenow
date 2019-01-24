@@ -112,10 +112,6 @@ const PurchaseRequestSchema = new Schema({
     type: String,
     max_length: 20
   },
-  purchaseOrderNum: {
-    type: String
-    // required: true
-  },
   items: [
     {
       qty: {
