@@ -28,7 +28,7 @@ class Navbar extends Component {
           <li className="nav-item">
             <Link className="nav-link" to="/create-pr">
               <button type="button" className="btn btn-secondary rounded">
-                NEW PR <i className="fa fa-plus" />
+                ADD PR <i className="fa fa-plus" />
               </button>
             </Link>
           </li>
