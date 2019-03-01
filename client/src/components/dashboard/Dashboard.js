@@ -29,7 +29,8 @@ class Dashboard extends Component {
       dashboardContent = <Spinner />;
     } else {
       // Check if logged in user has profile data
-      if (Object.keys(profile).length > 0) {
+      if (Object.keys(profile).length >= 0) {
+        // THIS NEEDS TO BE CHANGED A BIT
         status = (
           <div className="container-fluid">
             <div className="row">
